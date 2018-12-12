@@ -1,16 +1,24 @@
 <h1>Thanks for Shopping Wtih Us</h1>
 <p>Let's review your order</p>
 
+<table class="table">
+	<tr>
+		<td><strong>Items</strong></td>
+		<td><strong>Quantity</strong></td>
+		<td></td>
+	</tr>
 <% @order.order_items.each do |key, value| %>
-	<ul>
-		<li><%= Product.find(key).name %>, <%= value %></li>
-	</ul>
+	<tr>
+		<td><%= Product.find(key).name %></td>
+		<td><%= value %></td>
+		<td></td>
+	</tr>
 <% end %>
 
-<p>
-	<strong>Subtotal:</strong> <%= money(@order.subtotal) %>
-	<strong>Tax:</strong> <%= money(@order.sales_tax) %>
-	<strong>Order Total:</strong> <%= money(@order.grand_total) %>
-</p>
-
+	<tr>
+		<td><strong>Subtotal:</strong> <%= money(@order.subtotal) %></td>
+		<td><strong>Tax:</strong> <%= money(@order.sales_tax) %></td>
+		<td><strong>Order Total:</strong> <%= money(@order.grand_total) %></td>
+	</tr>
+</table>
 

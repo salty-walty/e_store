@@ -1,12 +1,22 @@
 <h1>My Cart</h1>
 
 <div>
+	<table class="table">
 	<% @line_items.each do |line_item| %>
-		<li><%= line_item.product.name %></li>
-		<li><%= money(line_item.product.price) %></li>
-		<li>Qty: <%= line_item.quantity %></li>
-		<li>Subtotal: <%= money(line_item.line_item_total) %></li>
+		<tr>
+			<td><%= line_item.product.name %></td>
+			<td><%= money(line_item.product.price) %></td>
+			<td>Qty: <%= line_item.quantity %></td>
+			<td>Subtotal: <%= money(line_item.line_item_total) %></td>
+		</tr>
 	<% end %>
+	<tr>
+		<td>Products</td>
+		<td>Prices</td>
+		<td>Quantity</td>
+		<td><strong>Subtotal:</strong> <%= money(@order.subtotal) %></td>
+	</tr>
+	</table>
 </div>
 
 <div>
