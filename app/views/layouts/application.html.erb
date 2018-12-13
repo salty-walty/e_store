@@ -45,10 +45,10 @@
             <% end %>
             </ul>
           </li>
-
+          <% if user_signed_in? && (can? :update, Product) %>
+           <li><%= link_to "Manage Products", products_path %></li>
+          <% end %>
         </ul>
-
-
 
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
